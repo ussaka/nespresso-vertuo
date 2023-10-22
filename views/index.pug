@@ -3,3 +3,30 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  h2 Our Mission
+  section#missionSection
+    each item in foundItemss
+      div.card
+        h3 #{item.name}
+        div.card-box
+          div.card-img
+            img(src="images/capsules/" + item._id + ".png", width="50%", height="50%")
+          div.card-content
+            p #{item.summary}
+
+
+  h1 Gallery
+  .gallery
+    each item in foundItemss
+      a(href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIiJ5dMbRMicFsQh3ye1F34bY7mODVTQBjFK-IKCfCerKgLeHWet9IeT7SEp08F_lXn0", data-lightbox="gallery", data-title=item.name)
+        img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIiJ5dMbRMicFsQh3ye1F34bY7mODVTQBjFK-IKCfCerKgLeHWet9IeT7SEp08F_lXn0", alt=item.name)
+        .image-details
+          .caption
+            h3=item.name
+            p=item.description
+          .additional-info
+            p=item.summary
+            p=item.size
+            p=item.intensity
+            p=item.limited_edition
